@@ -1,0 +1,11 @@
+﻿请先在此路径运行npm install安装必要的模块
+
+Arduino控制板请事先上传Firmata程序
+
+
+cds.js档：
+在网页上呈现cds光敏电阻的动态数据图
+
+cds_filter.js档：
+在网页上呈现滤波之后的cds光敏电阻的动态数据图
+

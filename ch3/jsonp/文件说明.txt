@@ -1,0 +1,5 @@
+﻿index.html：
+以JSON方式，读取OS.js的数据，请参阅「使用JSONP格式跨网域访问信息」单元。
+
+jsonp.html：
+以JSONP方式，读取「express」文件夹里的os.js网页数据，请参阅「使用JSONP格式跨网域访问信息」单元。

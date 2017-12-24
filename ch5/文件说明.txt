@@ -1,0 +1,15 @@
+﻿arduino文件夹：
+包含LM35温度传感器的示例代码
+
+static文件夹：
+透过express套件提供静态网页
+
+five文件夹：
+Johnney-Five（霹雳五号）的基础线习程序，Arduino控制板请事先上传Firmata代码。
+
+socket文件夹：
+使用socket.io创建基本的即时通信代码
+
+matrix文件夹：
+使用霹雳五号和socket.io创建的即时绘制LED矩阵代码
+

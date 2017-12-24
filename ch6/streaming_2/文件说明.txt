@@ -1,0 +1,12 @@
+﻿请先在此路径运行npm install安装必要的模块
+
+Arduino控制板请事先上传Firmata代码
+
+stream.js档：
+透过Node启动mjpg_streamer串流视频代码
+
+servo_key.js：
+启动mjpg_streamer串流视频代码，并接收按键控制舵机。运行Node代码之后，透过浏览器开启此网站，并浏览到index_key.html，即可透过方向键操控舵机。例如，假设你的树莓派IP是192.168.1.50，请输入：192.168.1.50:5438/index_key.html
+
+servo_key.js：
+启动mjpg_streamer串流视频代码，并接收摇杆控制舵机。运行Node代码之后，透过浏览器开启此网站，并浏览到index_gamepad.html，即可透过实体摇杆（游戏控制器）操控舵机；浏览到index_virtual.html，即可透过虚拟摇杆（触摸屏）操控舵机

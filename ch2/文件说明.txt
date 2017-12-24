@@ -1,0 +1,11 @@
+﻿calc文件夹：
+包含相加计算的表单网页
+
+jquery-ui-1.11.4.custom文件夹：
+从jQuery UI网站下载的自定义UI模块（仅滑块界面）
+
+slide文件夹：
+包含滑块界面的网页
+
+temp文件夹：
+包含CSV, XML和JSON数据以及温湿度网页和Arduino代码

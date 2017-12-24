@@ -1,0 +1,135 @@
+﻿变量数据类型练习：
+
+console.log(typeof  "hello"); 	// 显示"string"（字符串）
+console.log(typeof  13);        // 显示"number"（数字）
+console.log(typeof  3.14159); 	// 显示"number"（数字）
+console.log(typeof  true);  	// 显示"boolean"（布林）
+console.log(typeof  undefined); // 显示"undefined"（未定义）
+console.log(typeof  null);	// 显示"object"（对象）
+
+转换数字类型
+Number("1e3")
+Number("0xCC")
+Number("123abc")
+parseInt("123abc")
+parseInt("8.24")
+parseFloat("8.24")
+
+
+数字格式与算术运算子
+
+console.log(0.1 + 0.2);  // 输出：0.30000000000000004
+console.log(0.1 * 0.2);  // 输出：0.020000000000000004
+console.log(0.1 + 0.2 == 0.3);  // 比较运算值，结果为false
+
+逻辑与位移运算
+
+0b0101 & 0b0100
+0b0101 | 0b0010
+0b0101 ^ 0b1111
+0b0101 >> 1
+0b0101 >> 2
+
+2进制转换成10进制数字：
+
+parseInt('1101', 2);
+
+浮点数字精确度
+
+var num = 0.1 * 0.2;
+console.log(parseFloat(num.toPrecision(12)));    // 输出：0.02
+
+随机数字
+
+var id = setInterval(function () {
+　　var num = Math.floor(Math.random() * 1024);
+　　console.log(num);
+}, 3000);
+
+clearInterval(id);  // 停止指定识别码的定时循环
+
+字符串相连
+
+var str = 10 + "321";
+console.log(str);
+
+设定函数参数
+
+function add(x, y) {
+  if (x === undefined) {
+    x = 0;
+  }
+  y = y || 0;
+  return x + y;
+}
+console.log(add(5)); 
+console.log(add(5, 3));
+
+局域变量
+
+function counter() {
+  var num = num || 0;
+  return ++num;
+}
+
+console.log(counter());
+
+全域变量
+
+var num = 0;
+function counter() {
+  return ++num;
+}
+
+console.log(counter());
+
+定时运行陈述：
+
+setTimeout(function(){
+  console.log("泡面可以吃了");
+}, 180000);
+
+clearInterval(81);
+
+重复运行陈述：
+
+setInterval(function() {
+  console.log('hello');
+},1000);
+
+数组与循环
+
+// 数组宣告
+var she = ['Selina', 'Hebe', 'Ella'];
+var total = she.length;
+
+// 使用for循环
+for(var i=0; i<total; i++) {
+  console.log(she[i]);
+}
+
+// 替换元素1
+she.splice(1,1,"杰伦", "昆凌");
+
+// 使用forEach
+she.forEach(function(val){
+  console.log(val);
+});
+
+对象数据
+
+var lightObj = { wall:"ON", 
+                 table:"OFF", 
+                 magic:"ON" };
+console.log(lightObj.magic);
+
+for(var key in lightObj) {
+    var val = lightObj[key];
+    
+    console.log("属性："+key+" 值："+val);
+}
+
+var data = { '@-@':8,
+             '2':"number",
+             ' ':"Space" };
+console.log(data["@-@"]);

@@ -1,0 +1,11 @@
+﻿diy2_1.ino：
+在网页上呈现纯文字格式的温湿度值
+
+diy2_2.ino：
+通过thCmd()，传回JSON格式的温湿度值。
+
+diy2_3.ino：
+通过getCmd()，处理来自前端的PWM设置请求。
+
+diy2_4.ino：
+包含引用jQuery程式的动态网页

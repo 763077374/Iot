@@ -1,0 +1,18 @@
+﻿console.log('你好');
+console.log('%s：%d', '年份', 2015);
+
+// ES6功能测试
+// 箭头函数
+var foo = (str) => {
+  console.log('你好，' + str);
+}
+foo('cubie');
+
+// tick字符与多行字符串
+var str = `万物联网、
+          跨界游艺。`;
+console.log(str);
+
+// tick字符与表达式
+var x = 3, y = 6;
+console.log(`计算结果：${x+y}`);

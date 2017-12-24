@@ -1,0 +1,16 @@
+﻿请先在此路径运行npm install安装必要的模块
+
+Arduino控制板请事先上传Firmata代码
+
+
+mail_1.js：
+基本的gmail寄信代码
+
+mail_2.js：
+附加图像功能的gmail寄信代码
+
+index.js：
+透过PIR传感器触发摄影机拍照然后寄送e-mail
+
+pirMail.js：
+提供index.js使用的寄信模块

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>显示温度</title>
+ </head>
+ <body>
+  <input type="button" id="btn" value="读取数据">
+  <p>请按F12键查看控制台</p>
+  <script src="js/jquery-2.1.3.min.js"></script>
+  <script>
+    $(function(){
+        $("#btn").click(function(){
+            // 请自行修改IP地址
+            $.getJSON("http://127.0.0.1:5438/", function(d){
+                console.log(d);
+            }, "json");
+        });
+    });
+  </script>
+ </body>
+</html>

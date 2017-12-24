@@ -1,0 +1,22 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>注册数据</title>
+</head>
+
+<body>
+<h1>注册</h1>
+<form action="/regist" method="post">
+    帐号：<input type="text" name="user"><br>
+    电邮：<input type="text" name="email"><br>
+  <p>控制板：<br>
+  <label><input type="checkbox" name="boards[]" value="Arduino">Arduino</label><br>
+  <label><input type="checkbox" name="boards[]" value="Ethernet">以太网卡</label><br>
+  <label><input type="checkbox" name="boards[]" value="motor">电机驱动板</label><br>
+  <label><input type="checkbox" name="boards[]" value="Bluetooth">蓝牙串口板</label><br>
+  </p>
+    <input type="submit" value="送出">
+</form>
+</body>
+</html>

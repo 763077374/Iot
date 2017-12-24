@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>串流视频：方向键转动舵机</title>
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery.js"></script>
+</head>
+<body>
+<h1>串流视频</h1>
+<!-- 请自行修改串流视频来源的地址 -->
+<p><img src="http://192.168.1.12:8080/?action=stream"></p>
+<p>请按下方向键，调整摄影机拍摄角度。</p>
+<script>
+	var socket = io.connect();
+	
+	function sendKey(key) {
+		socket.emit('servo', {'dir':key});
+	}
+	
+	$( document ).ready(function(){
+　　　	  // 在网页文档上附加侦听「按下按键」事件的处理程序
+ 		$(document).keydown(function(e){
+			switch (e.keyCode) {
+				case 37:  // 左
+					sendKey("left");
+					break;
+				case 39:  // 右
+					sendKey("right");
+					break;
+				case 38:  // 上
+					sendKey("up");
+					break;
+				case 40:  // 下
+					sendKey("down");
+					break;
+			}
+    	});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+start "MongoDB交互式前台" "C:\mongoDB\bin\mongo.exe" sensors

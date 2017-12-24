@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>D3基础练习</title>
+<style type="text/css">
+  svg {
+    background-color:#BAE3F9;  /* 背景色 */
+  }
+  path {
+    stroke:#00A0E9;     /* 线条颜色 */
+    stroke-width:2px;   /* 线条粗细：2像素 */
+    fill:none;          /* 没有填色 */
+  }
+  
+  .axis path,
+.axis line {
+    stroke-width: 1px;    /* 线条粗细: 1像素 */
+    stroke: grey;         /* 线条: 灰色 */
+    fill: none;           /* 填色: 无 */
+    shape-rendering: crispEdges;  /* 外型呈现: 清晰边缘 */
+}
+</style>
+<script src="js/d3.min.js"></script>
+</head>
+
+<body>
+<div id="graph">
+</div>
+<script>
+var w = 800,     // SVG图像宽
+   h = 300,      // SVG图像高
+   padding = 30;  // 留白
+
+// 折线图数据
+var dht11Data = [  { '温度': 20,  '湿度': 71, '日期': '2015-03-29T00:00:00Z'},
+                { '温度': 22,  '湿度': 66, '日期': '2015-03-30T00:00:00Z'},
+				  { '温度': 24,  '湿度': 68, '日期': '2015-03-31T00:00:00Z'},
+				  { '温度': 23,  '湿度': 70, '日期': '2015-04-01T00:00:00Z'},
+				  { '温度': 20,  '湿度': 74, '日期': '2015-04-02T00:00:00Z'},
+				  { '温度': 23,  '湿度': 69, '日期': '2015-04-03T00:00:00Z'},
+				  { '温度': 26,  '湿度': 72, '日期': '2015-04-04T00:00:00Z'} ];
+
+// 转换（确认）数据类型
+dht11Data.forEach(function(d) {
+    d['日期'] = new Date(d['日期']);  // 转换成日期类型值
+　　　d['温度'] = +d['温度'];     // 转换成数字类型值
+　　　d['湿度'] = +d['湿度'];     // 转换成数字类型值
+});
+
+// 在id名为“graph”的元素中，插入<svg>标签。
+var svg = d3.select("#graph")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
+
+// 创建垂直与水平比例转换函数
+var yScale = d3.scale.linear()
+				.domain([
+					0, 
+					d3.max(dht11Data, function(d) { return d['温度']; })
+				])
+				.range([h-padding, padding]);
+
+var xScale = d3.time.scale()
+				.domain(d3.extent(dht11Data, function(d) { 
+                  return d['日期'].setHours(0,0,0,0); }))
+				.range([padding, w-padding]);
+
+// 根据比例函数，将日期与温度转换成座标值。
+var drawLine = d3.svg.line()
+    .x(function(d) { return xScale(d['日期']); })
+    .y(function(d) { return yScale(d['温度']); });
+
+// 在<svg>元素中插入<path>标签以及绘图指令
+svg.append("path")
+   .attr("d", drawLine(dht11Data));
+   
+var yAxis = d3.svg.axis()
+               .scale(yScale)
+               .orient("left");
+
+// 调整Y轴单位标示线位置		   
+svg.append("g")
+   .attr("class", "axis")
+   .attr("transform", "translate(" + padding + ", 0)")
+   .call(yAxis);
+</script>
+</body>
+</html>

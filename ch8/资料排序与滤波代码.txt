@@ -1,0 +1,35 @@
+﻿// 数据排序实验之一
+var arr = ['espruino', 'raspberry', 'arduino'];
+arr.sort();  // 依字符顺序排列
+console.log(arr.join());
+
+
+
+// 数据排序实验之二
+var num = [33, 26, 109, 46, 28, 8];
+num.sort(); 
+console.log(num.join());
+
+
+
+// 数据排序实验之二
+var num = [33, 26, 109, 46, 28, 8];
+num.sort(function(a, b) {
+  return a-b;
+}); 
+console.log(num.join());
+
+
+
+// 滤波程序
+var data = [72, 12, 46, 28, 36];  // 测试数据
+console.log("中数值：" + median(data));
+
+function median(arr) {
+    // 如果数组没有元素，则中止函数并传回null。
+　　if (arr.length == 0) return null;
+　　arr.sort(function (a,b){return a - b});  // 由小到大排列数组
+    var mid = Math.floor(arr.length / 2);  // 求取中间索引编号
+    
+　　return arr[mid];  // 传回数组中间元素的值
+}

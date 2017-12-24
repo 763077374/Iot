@@ -1,0 +1,19 @@
+// ���յ{���@
+var str = '{"�ū�":22,"����":60,"�Ʀ��}":' + 
+          '{"2":0,"3":1}}';
+
+var obj = JSON.parse(str);
+console.log('�ūסG' + obj.�ū�);
+console.log('�}2�G' + obj.�Ʀ��}[2]);
+
+
+
+// ���յ{���G
+var str = '{"�ū�":22,"����":60,' + 
+        '"�Ʀ��}":[{"pin":2,"val":0},'+
+        '{"pin":3,"val":1}]}';
+
+var obj = JSON.parse(str);
+console.log('�ūסG' + obj.�ū�);
+console.log('�}' + obj.�Ʀ��}[0].pin + 
+            '�G' + obj.�Ʀ��}[0].val);

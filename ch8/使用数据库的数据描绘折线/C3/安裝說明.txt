@@ -1,0 +1,3 @@
+﻿请先在此路径运行npm install安装必要的模块
+
+运行temp.js程序之前，请先启动mongoDB数据库。

@@ -1,0 +1,21 @@
+﻿sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install -y cmake 
+sudo apt-get install -y libjpeg8 libjpeg8-dev
+git clone https://github.com/jacksonliam/mjpg-streamer.git
+cd mjpg-streamer/mjpg-streamer-experimental
+
+# 在树莓派2代和3代，make命令后面可以附加-j 4参数，代表使用四核心进行编译。
+make
+sudo make install
+
+# 将插件组件的所在路径，加到系统的LD_LIBRARY_PATH（组件库路径）变量
+sudo nano ~/.bashrc
+
+# 请在此程序档的最后一行，输入底下的变量设置陈述：
+export LD_LIBRARY_PATH=/usr/local/lib/
+
+# 重新启动bashrc进程
+source ~/.bashrc
+
+# 启动串流视频服务器之一
+mjpg_streamer -i "input_raspicam.so" -o "output_http.so -w /usr/local/www"

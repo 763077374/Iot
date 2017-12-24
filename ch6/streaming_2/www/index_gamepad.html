@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>模拟摇杆（游戏控制器）旋转舵机</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="/socket.io/socket.io.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="js/gamepad.min.js"></script>
+</head>
+<body>
+    <h1>串流视频</h1>
+    <!-- 请自行修改串流视频来源的地址 -->
+    <p><img src="http://192.168.1.12:8080/?action=stream"></p>
+    <p>请透过电玩控制器调整摄影机拍摄角度。</p>
+	<script>
+	var socket = io.connect();
+	
+	function sendJoy(val) {
+		socket.emit('joy', {
+			'stick': val
+        });
+    }
+
+	$(document).ready(function() {
+    　　var stick = {'x':90, 'y':90};  // 声明保存摇杆值的变量
+        var gamepad = new Gamepad();  // 创建游戏控制器对象
+
+        gamepad.bind(Gamepad.Event.AXIS_CHANGED, function(e) {
+            console.log(e.axis + ' 摇杆：' + e.value);
+            
+            if (e.axis == "LEFT_STICK_X") {   // 读取摇杆的水平值
+                // 模拟摇杆值介于-1~1，需要经过底下的算式转成0~180
+                stick.x = 180 - Math.floor((e.value * 90) + 90);
+            }
+            
+            if (e.axis == "LEFT_STICK_Y") {   // 读取摇杆的垂直值
+                stick.y = 180 - Math.floor((e.value * 90) + 90);
+            }
+            
+            sendJoy(stick);  // 发送摇杆值  
+        });
+        
+    // 若摇杆程序库无法进行初始化…
+        if (!gamepad.init()) {
+            alert('此浏览器不支持游戏控制器，请改用最新版的Firefox或Chrome。');
+        }
+    });
+	</script>
+</body>
+</html>

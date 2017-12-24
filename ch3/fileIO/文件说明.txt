@@ -1,0 +1,8 @@
+﻿file_basic.js：
+以异步方式读取node.txt文件
+
+file_sync.js：
+以同步方式读取node.txt文件
+
+http_file.js
+以异步方式读取www路径底下的index.html文件

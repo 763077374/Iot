@@ -1,0 +1,11 @@
+﻿练习代码.txt：
+包含本章各小节的代码片段，可直接贴入浏览器的JavaScript控制台调试。
+
+calc.html：
+加法计算的表单页面，以及采用document.getElementById()方法截取字段内容的语法示例。
+
+event.html：
+<body>标签的onLoad，以及超链接的onClick事件语法示例。
+
+external.html：
+链接外部.js文件的<script>标签示例

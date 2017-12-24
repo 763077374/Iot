@@ -1,0 +1,8 @@
+﻿calc.html：
+引用位于js文件夹里的jQuery库，并使用jQuery语法访问表单字段值。
+
+calc_cdn.html：
+引用CDN网络的jQuery库。
+
+calc2.html：
+加上超链接触发相加计算的jQuery程序。
